@@ -31,5 +31,6 @@ func main() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/api/hello", GetHandler).Methods("GET")
+	router.HandleFunc("/api/hello", GetHandler).Methods("POST")
 	http.ListenAndServe(":8080", router)
 }
