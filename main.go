@@ -11,7 +11,7 @@ import (
 var message string
 
 type requestBody struct {
-	Message string `json:message`
+	Message string `json:"message"`
 }
 
 func PostHandler(w http.ResponseWriter, r *http.Request) {
@@ -31,6 +31,6 @@ func main() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/api/hello", GetHandler).Methods("GET")
-	router.HandleFunc("/api/hello", GetHandler).Methods("POST")
+	router.HandleFunc("/api/hello", PostHandler).Methods("POST")
 	http.ListenAndServe(":8080", router)
 }
